@@ -1,0 +1,55 @@
+<div class="container-fluid" ng-controller="notificationsController">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card ">
+                <div class="card-header ">
+                    <h4 class="card-title">{{mainBlockTitle}}</h4>
+                    <p class="card-category">{{mainBlockSubTitle}}</p>
+                </div>
+                <div class="card-body ">
+                    <div class="image-message" ng-show="failedRecognition">
+                        <p>{{failRecogMessage}}</p>
+                    </div>
+                    <img ng-src={{faceImageSrc}} width="100%" id="face-image">
+                </div>
+                <div class="card-footer ">
+                    <div class="stats">
+                        <i class="fa fa-history"></i> Recognition coefficient: 100
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" ng-show="!recognitionActive">
+                <div class="card-header ">
+                    <h4 class="card-title">{{sidebarTitle}}</h4>
+                    <p class="card-category">{{sidebarSubTitle}}</p>
+                </div>
+                <div class="card-body notification-result">
+                    <div>Intruder detected!</div>
+                    <hr>
+                    <div class="sms-message">SMS notification was send</div>
+                    <div class="mail-message">E-mail notification was send</div>
+                </div>
+                <div class="card-footer ">
+
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-clock-o"></i> Message sent 2 minutes ago
+                    </div>
+                </div>
+            </div>
+            <div class="card" ng-show="recognitionActive">
+                <div class="card-header ">
+                    <h4 class="card-title">{{sidebarTitle}}</h4>
+                    <p class="card-category">{{sidebarSubTitle}}</p>
+                </div>
+                <div class="card-body notification-result">
+                    <div class="recognition-status">Face Recognition...</div>
+                </div>
+                <div class="card-footer ">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

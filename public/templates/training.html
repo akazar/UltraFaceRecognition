@@ -1,0 +1,57 @@
+<div class="container-fluid" ng-controller="trainingController">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card ">
+                <div class="card-header ">
+                    <h4 class="card-title">{{mainBlockTitle}}</h4>
+                    <p class="card-category">{{mainBlockSubTitle}}</p>
+                </div>
+                <div class="card-body ">
+                    <div class="image-message" ng-show="{{failedRecognition}}">
+                        <p>{{failRecogMessage}}</p>
+                    </div>
+                    <img ng-src={{faceImageSrc}} width="100%" id="face-image">
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="fa fa-history"></i> Updated 3 minutes ago
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card ">
+                <div class="card-header ">
+                    <h4 class="card-title">{{sidebarTitle}}</h4>
+                    <p class="card-category">{{sidebarSubTitle}}</p>
+                </div>
+                <div class="card-body ">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Browse&hellip; <input type="file" style="display: none;" multiple>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly>
+                        </div>
+                        <br>
+                        <label for="sel1">Recognized user list:</label>
+                        <div ng-repeat="recognized in recognitionResults">
+                            {{recognized.name}} : {{recognized.percentage}}%
+                        </div>
+                        <br>
+                        <label for="sel1">Existing user list:</label>
+                        <select class="form-control" id="sel1">
+                            <option ng-repeat="user in userList">{{user.name}}</option>
+                        </select>
+                        <br>                                        
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <button type="button" class="btn btn-default btn-block">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

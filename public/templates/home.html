@@ -1,0 +1,80 @@
+
+<div class="container-fluid" ng-controller="homeController">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card ">
+                <div class="card-header ">
+                    <h4 class="card-title">{{mainBlockTitle}}</h4>
+                    <p class="card-category">{{mainBlockSubTitle}}</p>
+                </div>
+                <div class="card-body">
+                    <div class="image-message" ng-show="failedRecognition">
+                        <p>{{failRecogMessage}}</p>
+                    </div>
+                    <img ng-src={{faceImageSrc}} width="100%" id="face-image">
+                </div>
+                <div class="card-footer ">
+                    <div class="stats">
+                        <i class="fa fa-history"></i> Recognition coefficient: 100
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card ">
+                <div class="card-header ">
+                    <h4 class="card-title">{{sidebarTitle}}</h4>
+                    <p class="card-category">{{sidebarSubTitle}}</p>
+                </div>
+                <div class="card-body enter-detection-result">
+                    <div class="welcome-message" ng-show="accessAllowed">Welcome,<br> Artem!</div>
+                    <div class="denied-message" ng-show="accessDenied">Access,<br> denied!</div>
+                    <div class="warning-message" ng-show="recognitionWarning">Enter PIN!</div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-clock-o"></i> Try again after few seconds
+                    </div>
+                </div>
+            </div>
+            <div class="card" ng-show="recognitionWarning">
+                    <div class="card-header ">
+                        <h4 class="card-title">Enter your PIN</h4>
+                        <p class="card-category">Enter code for access</p>
+                    </div>
+                    <div class="card-body">
+                        <div id="PINcode">
+                            <form action='' method='' name='PINform' id='PINform' autocomplete='off' draggable='true'>
+                                <input id='PINbox' type='password' ng-value='pinValue' name='PINbox' disabled />
+                                <br/>
+                                <div class="pin-keypad">
+                                    <input class='PINbutton' name='1' value='1' id='1' ng-click="addNumber(1)"; />
+                                    <input class='PINbutton' name='2' value='2' id='2' ng-click="addNumber(2)" />
+                                    <input class='PINbutton' name='3' value='3' id='3' ng-click="addNumber(3)" />
+                                    <br>
+                                    <input class='PINbutton' name='4' value='4' id='4' ng-click="addNumber(4)" />
+                                    <input class='PINbutton' name='5' value='5' id='5' ng-click="addNumber(5)" />
+                                    <input class='PINbutton' name='6' value='6' id='6' ng-click="addNumber(6)" />
+                                    <br>
+                                    <input class='PINbutton' name='7' value='7' id='7' ng-click="addNumber(7)" />
+                                    <input class='PINbutton' name='8' value='8' id='8' ng-click="addNumber(8)" />
+                                    <input class='PINbutton' name='9' value='9' id='9' ng-click="addNumber(9)" />
+                                    <br>
+                                    <input class='PINbutton clear' name='-' value='clear' id='-' ng-click="clearForm(this)"/>
+                                    <input class='PINbutton' name='0' value='0' id='0' ng-click="addNumber(0)"/>
+                                    <input class='PINbutton enter' name='+' value='enter' id='+' ng-click="submitForm(this)"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer ">
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i> Try again after few seconds
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
